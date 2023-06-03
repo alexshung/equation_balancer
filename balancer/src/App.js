@@ -37,9 +37,9 @@ function App() {
       const parsedTerms = {};
 
       for (const term of terms) {
-        const coefficientMatch = term.match(/^(-?\d+)?/);
-        const coefficient = parseInt(coefficientMatch[0]) || 1;
-
+        const coefficientMatch = term.match(/^([+-]?\d+)?/);
+        const coefficient = coefficientMatch[0] === '0' || coefficientMatch[0] === '+0' || coefficientMatch[0] === '-0' ? 0 : parseInt(coefficientMatch[0]) || 1;
+        
         const variableMatch = term.match(/[a-zA-Z]+/);
         const variable = variableMatch ? variableMatch[0] : "constant";
 
@@ -59,7 +59,7 @@ function App() {
       return terms;
     };
     const terms = getLeftAndRightTerms(equation);
-    if (terms["left"] === null || terms["right"] === null) {
+    if (!terms["left"] || !terms["right"]) {
       // Clear the counts if the equation format is invalid
       setLeftSide({
         box: 0,
