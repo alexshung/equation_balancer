@@ -1,0 +1,145 @@
+.app {
+  text-align: center;
+}
+
+.balance {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0;
+}
+
+.side {
+  width: 200px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  margin-right: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.side h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.weights {
+  align-items: center;
+  padding: 10px;
+}
+.weight-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.weight {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.weight-label {
+  font-size: 14px;
+}
+
+.weight-input {
+  width: 60px;
+  padding: 4px;
+  font-size: 14px;
+}
+
+.highlighted {
+  background-color: #e0e0e0;
+}
+
+.balance-status {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.balanced {
+  color: green;
+}
+
+.left_imbalanced {
+  color: red;
+}
+
+.right_imbalanced {
+  color: blue;
+}
+
+.toggle-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.weight-values {
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.weight-values h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.weight-values .weight {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  margin-bottom: 15px;
+}
+
+.weight-values .weight-label {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.weight-values .weight-input {
+  width: 60px;
+  padding: 4px;
+  font-size: 14px;
+}
+
+.weight-image img {
+  width: 60px;
+  height: 60px;
+}
+
+.scale-image img {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: 500px;
+  height: 500px;
+}
+
+.weight-image-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.scale-visualization {
+  display: flex;
+}
