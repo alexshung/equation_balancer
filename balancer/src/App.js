@@ -102,7 +102,7 @@ function App() {
     return Object.entries(weights).reduce(
       (sum, [type, count]) => sum + weightValues[type] * count,
       0
-    );
+    ).toFixed(10);
   };
 
   const handleIncrement = (side, type) => {
@@ -120,7 +120,6 @@ function App() {
   const toggleShowWeights = () => {
     setShowWeights(!showWeights);
   };
-
   const balanceState =
     calculateTotalWeight("left") === calculateTotalWeight("right")
       ? "balanced"
