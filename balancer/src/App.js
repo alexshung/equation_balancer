@@ -1,33 +1,28 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import boxImage from "./images/cube.png";
-import bagImage from "./images/bag.png";
-import cylinderImage from "./images/cylinder.png";
+import variableImage from "./images/cube.png";
+import constantImage from "./images/bag.png";
 import scaleLeftImage from "./images/scale_left.png";
 import scaleRightImage from "./images/scale_right.png";
 import scaleBalanceImage from "./images/scale_balance.png";
-import negBoxImage from "./images/neg_cube.png";
-import negBagImage from "./images/neg_bag.png";
-import negCylinderImage from "./images/neg_cylinder.png";
+import negVariableImage from "./images/neg_cube.png";
+import negConstantImage from "./images/neg_bag.png";
 
 function App() {
   const [leftSide, setLeftSide] = useState({
-    box: 0,
-    bag: 0,
-    // cylinder: 0,
+    variable: 0,
+    constant: 0,
   });
 
   const [rightSide, setRightSide] = useState({
-    box: 0,
-    bag: 0,
-    // cylinder: 0,
+    variable: 0,
+    constant: 0,
   });
 
   const [showWeights, setShowWeights] = useState(true);
   const [weightValues, setWeightValues] = useState({
-    box: 1,
-    bag: 1,
-    cylinder: 3,
+    variable: 1,
+    constant: 1,
   });
 
   const [equation, setEquation] = useState(""); // New state for the equation input
@@ -62,13 +57,13 @@ function App() {
     if (!terms["left"] || !terms["right"]) {
       // Clear the counts if the equation format is invalid
       setLeftSide({
-        box: 0,
-        bag: 0,
+        variable: 0,
+        constant: 0,
       });
 
       setRightSide({
-        box: 0,
-        bag: 0,
+        variable: 0,
+        constant: 0,
       });
       return;
     }
@@ -79,12 +74,12 @@ function App() {
     const d = terms["right"]["constant"] || 0;
 
     setLeftSide({
-      box: a,
-      bag: b,
+      variable: a,
+      constant: b,
     });
     setRightSide({
-      box: c,
-      bag: d,
+      variable: c,
+      constant: d,
     });
 
     // Solve the equation to determine the value of x
@@ -93,7 +88,7 @@ function App() {
     // Set the weightValues of box to the solved value of x
     setWeightValues((prevWeightValues) => ({
       ...prevWeightValues,
-      box: x,
+      variable: x,
     }));
   }, [equation]);
 
@@ -149,11 +144,9 @@ function App() {
         <img
           key={`${side}-${type}-${i}`}
           src={
-            type === "box"
-              ? (isPos ? boxImage : negBoxImage)
-              : type === "bag"
-              ? (isPos ? bagImage : negBagImage)
-              : (isPos ? cylinderImage :negCylinderImage)
+            type === "variable"
+              ? (isPos ? variableImage : negVariableImage)
+              : (isPos ? constantImage : negConstantImage)
           }
           alt={type}
         />
