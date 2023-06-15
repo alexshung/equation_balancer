@@ -32,8 +32,8 @@ function App() {
       const parsedTerms = {};
 
       for (const term of terms) {
-        const coefficientMatch = term.match(/^([+-]?\d+)?/);
-        const coefficient = coefficientMatch[0] === '0' || coefficientMatch[0] === '+0' || coefficientMatch[0] === '-0' ? 0 : parseInt(coefficientMatch[0]) || 1;
+        const coefficientMatch = term.match(/^([+-]?\d+)/);
+        const coefficient = coefficientMatch ? parseInt(coefficientMatch[0]) : term.includes("-") ? -1 : 1;
         
         const variableMatch = term.match(/[a-zA-Z]+/);
         const variable = variableMatch ? variableMatch[0] : "constant";
