@@ -19,7 +19,7 @@ function App() {
     constant: 0,
   });
 
-  const [showWeights, setShowWeights] = useState(true);
+  const [showAnswer, setShowAnswer] = useState(false);
   const [weightValues, setWeightValues] = useState({
     variable: 1,
     constant: 1,
@@ -112,8 +112,8 @@ function App() {
     side === "left" ? setLeftSide(updatedSide) : setRightSide(updatedSide);
   };
 
-  const toggleShowWeights = () => {
-    setShowWeights(!showWeights);
+  const toggleShowAnswer = () => {
+    setShowAnswer(!showAnswer);
   };
   const balanceState =
     calculateTotalWeight("left") === calculateTotalWeight("right")
@@ -261,12 +261,12 @@ function App() {
             : "Right Heavier"}
         </h2>
       </div>
-      <button className="toggle-button" onClick={toggleShowWeights}>
-        {showWeights ? "Hide Weights" : "Show Weights"}
+      <button className="toggle-button" onClick={toggleShowAnswer}>
+        {showAnswer ? "Hide Answer" : "Show Answer"}
       </button>
-      {showWeights && (
+      {showAnswer && (
         <div className="weight-values">
-          {Object.entries(weightValues).map(([type, weight]) => (
+          {Object.entries(weightValues).filter(([type, weight]) => type !== 'constant').map(([type, weight]) => (
             <div className="weight" key={type}>
               <div>
                 {type}:{" "}
